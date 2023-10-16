@@ -12,7 +12,7 @@ pipeline {
                  steps {
                      script {
                        withDockerRegistry(credentialsId: '422485c9-95dc-41ee-a146-af03ef0f4478') {
-                            sh "docker push anouaress/demo01:v1.0"
+                            sh "docker push anouaress/demo01:v1.$BUILD_NUMBER"
                          }
                      }
                  }
