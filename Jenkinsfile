@@ -4,7 +4,7 @@ pipeline {
              stage("Build Docker Image") {
                  steps {
                      script {
-                        sh "docker build -t anouaress/demo01:v1.0 ." 
+                        sh "docker build -t anouaress/demo01:v1.$BUILD_NUMBER ." 
                      }
                  }
         }    
