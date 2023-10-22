@@ -1,10 +1,15 @@
 pipeline {
      agent any
          stages {
-             stage('Stage 1') {
+             stage('SCM') {
             steps {
-                echo 'Hello, this is a sample step in Stage 1'}
-        }       
+                checkout scm}
+        }      
+          stage('SonarQube Analysis'){
+    def scannerHome = tool 'SonarScanner';
+    withSonarQubeEnv() {
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
 
 }    
 }
